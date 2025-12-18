@@ -1,52 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú de elfos</title>
 </head>
+
 <body>
-<?php
+    <?php
     $archivo = "data/elfos.json";
 
-    // Si el archivo no existe o está vacío
+    // Comprobar archivo
     if (!file_exists($archivo) || filesize($archivo) == 0) {
-        echo "No hay elfos registrados.";
-        echo '<br><br><a href="index.html">Volver al inicio</a>';
+        echo "No hay elfos registrados.<br><br>";
+        echo '<a href="index.html">Volver al inicio</a>';
         exit;
     }
 
-    // Leer y decodificar JSON
+    // Leer JSON
     $elfos = json_decode(file_get_contents($archivo), true);
 
     if (empty($elfos)) {
-        echo "No hay elfos registrados.";
-        echo '<br><br><a href="index.html">Volver al inicio</a>';
+        echo "No hay elfos registrados.<br><br>";
+        echo '<a href="index.html">Volver al inicio</a>';
         exit;
     }
 
-    // Contadores de menú
-    $estandar = 0;
-    $lactosa = 0;
-    $gluten = 0;
+    // Arrays para cada menú
+    $menuEstandar = [];
+    $menuLactosa  = [];
+    $menuGluten   = [];
 
-    // Contar cada menú
+    // Clasificar elfos por menú
     foreach ($elfos as $elfo) {
-        if ($elfo["menu"] === "estandar") {
-            $estandar++;
-        } elseif ($elfo["menu"] === "sin_lactosa") {
-            $lactosa++;
-        } elseif ($elfo["menu"] === "sin_gluten") {
-            $gluten++;
+
+        $nombre = $elfo["Nombre"] ?? "Sin nombre";
+
+        // OJO: la clave tiene un espacio "Menu "
+        if (isset($elfo["Menu "])) {
+
+            $menu = strtolower(trim($elfo["Menu "]));
+
+            switch ($menu) {
+                case "estandar":
+                    $menuEstandar[] = $nombre;
+                    break;
+
+                case "lactosa":
+                    $menuLactosa[] = $nombre;
+                    break;
+
+                case "gluten":
+                    $menuGluten[] = $nombre;
+                    break;
+            }
         }
     }
 
-    echo "<h2>Menús de elfos:</h2>";
-    echo "<h3>Menú estándar:</h3>$estandar<br>";
-    echo "<h3>Menú sin lactosa:</h3>$lactosa<br>";
-    echo "<h3>Menú sin gluten:</h3>$gluten<br>";
-?>
+
+
+    // Función para mostrar listas
+    function mostrarMenu($lista)
+    {
+        if (empty($lista)) {
+            echo "Sin elfos";
+        } else {
+            foreach ($lista as $nombre) {
+                echo "- " . htmlspecialchars($nombre) . "<br>";
+            }
+        }
+    }
+
+    echo "<h1>Menús de elfos:</h1>";
+
+    echo "<h2>Menú estandar:</h2>";
+    mostrarMenu($menuEstandar);
+
+    echo "<br><h2>Menú sin lactosa:</h2>";
+    mostrarMenu($menuLactosa);
+
+    echo "<br><h2>Menú sin gluten:</h2>";
+    mostrarMenu($menuGluten);
+    ?>
     <br><br>
     <a href="index.html">Volver al inicio</a>
 </body>
+
 </html>
