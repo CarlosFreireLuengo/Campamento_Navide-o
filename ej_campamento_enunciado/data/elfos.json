@@ -1,0 +1,20 @@
+[
+    {
+        "Nombre": "Celia",
+        "Curso": "2 DAW",
+        "Edad": "20",
+        "Menu ": "Estandar"
+    },
+    {
+        "Nombre": "Lola",
+        "Curso": "1",
+        "Edad": "30",
+        "Menu ": "Lactosa"
+    },
+    {
+        "Nombre": "Gabriel",
+        "Curso": "2 Daw",
+        "Edad": "21",
+        "Menu ": "Gluten"
+    }
+]
