@@ -16,5 +16,11 @@
         "Curso": "2 Daw",
         "Edad": "21",
         "Menu ": "Gluten"
+    },
+    {
+        "Nombre": "Carlos",
+        "Curso": "4 infantil",
+        "Edad": "6",
+        "Menu ": null
     }
 ]

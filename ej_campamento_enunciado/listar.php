@@ -35,6 +35,5 @@ if (empty($lista)) {
 ?>
 <br><br>
 <a href="index.html">Volver al inicio</a>
->>>>>>> listar
 </body>
 </html>
