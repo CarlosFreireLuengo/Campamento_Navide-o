@@ -21,20 +21,22 @@ $lista = json_decode(file_get_contents($archivo), true);
 
 echo "<h1>Listado de elfos</h1>";
 
-// Si no hay elfos en el JSON
-if (empty($lista)) {
-    echo "No hay elfos registrados.";
-} else {
-    foreach ($lista as $elfo) {
-        echo htmlspecialchars($elfo["Nombre"]) . " - ";
-        echo htmlspecialchars($elfo["Edad"]) . " años, ";
-        echo "Curso " . htmlspecialchars($elfo["Curso"]);
-        echo "<br>";
+    // Si no hay elfos en el JSON
+    if (empty($lista)) {
+        echo "No hay elfos registrados.";
+    } else {
+        echo "<ul>";
+        foreach ($lista as $elfo) {
+            echo "<li>";
+            echo "Nombre: " . htmlspecialchars($elfo["nombre"]) . "<br>";
+            echo "Especialidad: " . htmlspecialchars($elfo["especialidad"]) . "<br>";
+            echo "Experiencia: " . htmlspecialchars($elfo["experiencia"]) . "<br>";
+            echo "</li><br>";
+        }
+        echo "</ul>";
     }
-}
-?>
-<br><br>
-<a href="index.html">Volver al inicio</a>
->>>>>>> listar
+    ?>
+    <br><br>
+    <a href="index.html">Volver al inicio</a>
 </body>
 </html>
