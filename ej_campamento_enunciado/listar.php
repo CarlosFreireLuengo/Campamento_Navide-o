@@ -28,9 +28,9 @@
         echo "<ul>";
         foreach ($lista as $elfo) {
             echo "<li>";
-            echo "Nombre: " . htmlspecialchars($elfo["nombre"]) . "<br>";
-            echo "Especialidad: " . htmlspecialchars($elfo["especialidad"]) . "<br>";
-            echo "Experiencia: " . htmlspecialchars($elfo["experiencia"]) . "<br>";
+            echo "Nombre: " . htmlspecialchars($elfo["Nombre"]) . "<br>";
+            echo "Edad: " . htmlspecialchars($elfo["Edad"]) . "<br>";
+            echo "Curso: " . htmlspecialchars($elfo["Curso"]) . "<br>";
             echo "</li><br>";
         }
         echo "</ul>";
