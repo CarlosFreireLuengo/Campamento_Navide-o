@@ -31,31 +31,6 @@ if (empty($lista)) {
         echo "Curso " . htmlspecialchars($elfo["Curso"]);
         echo "<br>";
     }
-<<<<<<< HEAD
-
-    // Leer contenido y decodificar JSON
-    $lista = json_decode(file_get_contents($archivo), true);
-
-    echo "<h2>Listado de elfos</h2>";
-
-    // Si no hay elfos en el JSON
-    if (empty($lista)) {
-        echo "No hay elfos registrados.";
-    } else {
-        echo "<ul>";
-        foreach ($lista as $elfo) {
-            echo "<li>";
-            echo "Nombre: " . htmlspecialchars($elfo["Nombre"]) . "<br>";
-            echo "Edad: " . htmlspecialchars($elfo["Edad"]) . "<br>";
-            echo "Curso: " . htmlspecialchars($elfo["Curso"]) . "<br>";
-            echo "</li><br>";
-        }
-        echo "</ul>";
-    }
-    ?>
-    <br><br>
-    <a href="index.html">Volver al inicio</a>
-=======
 }
 ?>
 <br><br>
