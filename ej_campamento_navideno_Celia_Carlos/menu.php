@@ -37,7 +37,7 @@
 
         $nombre = $elfo["Nombre"] ?? "Sin nombre";
 
-        // OJO: la clave tiene un espacio "Menu "
+        // Si el menu existe, quiero que me pònga toda la información sobre los menús.
         if (isset($elfo["Menu "])) {
 
             $menu = strtolower(trim($elfo["Menu "]));

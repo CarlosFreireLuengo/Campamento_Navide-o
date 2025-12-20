@@ -27,6 +27,7 @@
     if (empty($lista)) {
         echo "No hay elfos registrados.";
     } else {
+        //Si hay informacion que me muestre toda la informacion(Nombre,Edad,Curso)
         echo "<ul>";
         foreach ($lista as $elfo) {
             echo htmlspecialchars($elfo["Nombre"]) . " - ";
